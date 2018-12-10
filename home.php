@@ -1,10 +1,11 @@
+<?php include('header.php'); ?>
 <html>  
 <head>
 <title>ICTYA Collections</title>
 <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-<?php include('header.php'); ?>
+
 <div class="bg">
 <br><br><br><br><br><br><br><br><br><br><br>
 <font  color="#C70039" face="courier" size= "30"><i><b>
