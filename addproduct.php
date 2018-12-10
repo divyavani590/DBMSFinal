@@ -69,7 +69,7 @@ if ($stmt->affected_rows > 0) {
 		echo "<h2><center>Page re-directing to Events page</center></h2>";
 		echo "<meta http-equiv='refresh' content='5;url=allproducts.php'>";
 } else {
-    echo "Error: ".  $stmt->error);
+    echo "Error: ". $stmt->error;
 }
 
 mysqli_close($conn);
