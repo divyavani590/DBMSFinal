@@ -1,7 +1,11 @@
 <?php include('session.php');
  $action = filter_input(INPUT_POST, 'action');
  if($action == NULL){
- $action = 'profile';
+     if($_SESSION["adminPage"] == NULL){
+        $action = 'profile';
+     }else{
+        $action = $_SESSION["adminPage"];
+     }
  }
  ?>
 <html>

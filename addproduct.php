@@ -64,10 +64,11 @@ $stmt->execute();
     //$result = $stmt->get_result();
   // echo $result;
 if ($stmt->affected_rows > 0) {
-    
+    $_SESSION["adminPage"] = 'allproducts';
     echo "<p style='color:maroon;'>you have successfully added an event</p>";
-		echo "<h2><center>Page re-directing to Events page</center></h2>";
-		echo "<meta http-equiv='refresh' content='5;url=allproducts.php'>";
+        echo "<h2><center>Page re-directing to Events page</center></h2>";
+        
+		echo "<meta http-equiv='refresh' content='5;url=admin.php'>";
 } else {
     echo "Error: ". $stmt->error;
 }
