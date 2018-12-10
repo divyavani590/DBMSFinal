@@ -1,5 +1,4 @@
-<?php
-include("session.php");
+<?php include("session.php");
 $mysqli = $db_handle->getNewConn();
 $srx = $_POST['order'];
     $stmt1 = $mysqli->prepare("select orderid,product_id,productimage,price,product_desc,quantity,order_status from orders,products where orderid=? AND orders.productid=products.product_id");

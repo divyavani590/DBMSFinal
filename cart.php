@@ -1,3 +1,4 @@
+<?php include('header.php')?>
 <html>
 <head>
 <title>ICTYA Collections</title>
@@ -11,7 +12,7 @@
 <link rel="stylesheet" href="style.css" />
 </head>
 <body style="background-image:url('winter.jpeg')">
-<?php include 'header.php'?>
+
 <BODY>
     
 <div class="container">

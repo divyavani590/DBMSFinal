@@ -1,5 +1,4 @@
-<?php
-include("session.php");
+<?php include("session.php");
 $mysqli = $db_handle->getNewConn();
 $srx = '%' . $_POST['search'] . '%';
 $page= $_POST['page'];

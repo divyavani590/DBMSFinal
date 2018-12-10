@@ -1,7 +1,4 @@
-<?php
-    
-    include('header.php');
-?>
+<?php include('header.php');?>
 <!doctype html>
 <html class="no-js" lang="en">
  <head>

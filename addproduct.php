@@ -1,5 +1,4 @@
-<?php
-include("session.php");
+<?php include("session.php");
 if (!empty($_FILES) && isset($_FILES['fileToUpload'])) {
     switch ($_FILES['fileToUpload']["error"]) {
         case UPLOAD_ERR_OK:

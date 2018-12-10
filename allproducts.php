@@ -1,5 +1,3 @@
-
-
 <?php include("session.php");
 $conn = $db_handle->getNewConn();
 //$sql="select * from products";

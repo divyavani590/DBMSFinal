@@ -1,10 +1,11 @@
+<?php include('header.php')?>
 <html>
 <head>
 
 <link rel="stylesheet" href="style.css" />
 
 </head>
-<?php include('header.php')?>
+
 <div>
 <body background="images/bundles-winter.png" opacity:0.5;></div>
 <div  style="background-color:#FFFFFF">

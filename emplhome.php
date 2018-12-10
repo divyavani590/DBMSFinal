@@ -1,3 +1,4 @@
+<?php include('header.php'); ?>
 <html>
 
 <head>
@@ -68,7 +69,7 @@ li.dropdown {
 </head>
 <body>
 
-<?php include('header.php'); ?>
+
 
 <div class="bg">
 <br>

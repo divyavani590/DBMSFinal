@@ -1,10 +1,10 @@
-
+<?php include('header.php'); ?>
 <html>  
 <head>
 <title>ICTYA Collections</title>
 </head>
 <body>
-<?php include('header.php'); 
+<?php
 //$result = $db_handle->runQuery("INSERT INTO 'order'('orderid') values (NULL)");
  $orderid = $db_handle->runQuery("SELECT * FROM ictyaorder ORDER BY orderid DESC LIMIT 1");
 foreach($_SESSION["cart_item"] as $k => $v) {

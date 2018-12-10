@@ -1,3 +1,4 @@
+<?php include("session.php"); ?>
 <html>
 <head>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>  
@@ -8,7 +9,7 @@
 
 <?php
 
-include("session.php");
+
 $conn = $db_handle->connectDB();
 if(isset($_POST['update'])){
 	$oldpassword=$_POST['oldpassword'];

@@ -1,5 +1,4 @@
-<?php
-include("session.php");
+<?php include("session.php");
 $conn = $db_handle->connectDB();
 
 	if( isset($_POST['submit']) )
