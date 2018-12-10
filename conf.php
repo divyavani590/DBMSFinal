@@ -2,7 +2,7 @@
 
 $conn_string = $db_handle->connectDB();
 $mysqli = $db_handle->getNewConn();
-if ($stmt = $mysqli->prepare("INSERT INTO ictya.order(email,total_amount) VALUES (?,?)")) {
+if ($stmt = $mysqli->prepare("INSERT INTO ictyaorder(email,total_amount) VALUES (?,?)")) {
   /* bind parameters for markers */
   $stmt->bind_param("si", $_SESSION['email'],$_SESSION['total_price']);
   /* execute query */

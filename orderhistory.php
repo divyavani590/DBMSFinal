@@ -20,7 +20,7 @@
 
 <?php
 $mysqli = $db_handle->getNewConn();
-if ($stmt = $mysqli->prepare("SELECT * from ictya.order where email= ?")) {
+if ($stmt = $mysqli->prepare("SELECT * from ictyaorder where email= ?")) {
   /* bind parameters for markers */
   $stmt->bind_param("s", $_SESSION['email']);
   /* execute query */

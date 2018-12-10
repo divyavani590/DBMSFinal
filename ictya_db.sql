@@ -32,9 +32,9 @@ DECLARE order_id INT DEFAULT 0;
 DECLARE email_id VARCHAR(255);
 DECLARE amount_total INT DEFAULT 0;
 DECLARE CurrentQty INT DEFAULT 0;
-SELECT product_qty INTO CurrentQty FROM ictya.products WHERE product_id = order_product_id;
+SELECT product_qty INTO CurrentQty FROM products WHERE product_id = order_product_id;
 
-SELECT orderid,email,total_amount INTO order_id,email_id,amount_total FROM ictya.order ORDER BY orderid DESC LIMIT 1;
+SELECT orderid,email,total_amount INTO order_id,email_id,amount_total FROM ictyaorder ORDER BY orderid DESC LIMIT 1;
 INSERT INTO `ictya`.`orders`
 (`orderid`,
 `productid`,
@@ -46,7 +46,7 @@ order_product_id,
 order_qty,
 "completed"
 );
-UPDATE ictya.products
+UPDATE products
 SET
 product_qty = CurrentQty - order_qty
 WHERE `product_id` = order_product_id;
