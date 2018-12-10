@@ -28,7 +28,7 @@ if (!empty($product_array)) {
   <label><b><font color="green" face="courier" size= "2"><?php echo $row['product_desc'] ?>&ensp;</b></font></label><br/>
   <label> Quantitiy: </label>
   <input type="number" name="quantity" class="ipt-qty" min="0" max="20"/>&emsp;
-  <input type="submit"  class="btn-primary" value="Add to the cart" />
+  <input type="submit"  class="btn btn-primary" value="Add to the cart" />
   </form>
 </div>
 
