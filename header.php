@@ -1,4 +1,3 @@
-
 <?php include('session.php'); ?>
 <h1> <font face="courier" color="#C70039">ICTYA Collections </font></h1>
 <ul>
