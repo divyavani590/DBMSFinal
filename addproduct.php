@@ -45,7 +45,7 @@ echo "hi".$_POST['filename'];
  $Category_id=$_POST['Category_id'];
  
 /*INSERT into ictya.product(P_Name,Price_perUnit,Order_in_quantity,gender,Category_id,productimage) values('peta jacket','20','4','F','2','images/coatm1');*/
-$stmt=$conn->prepare("INSERT into ictya.products(
+$stmt=$conn->prepare("INSERT into products(
 `product_desc`,
 `product_qty`,
 `productimage`,
