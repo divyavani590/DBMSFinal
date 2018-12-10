@@ -1,6 +1,4 @@
-<?php
-ob_start();
-session_start();
+<?php ob_start();session_start();
 require_once("dbcontroller.php");
 $db_handle = new DBController();
 if(empty($_SESSION["is_logged"])) {
