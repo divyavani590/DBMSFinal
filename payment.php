@@ -1,3 +1,4 @@
+<?php include('header.php'); ?>
 <html>  
 <head>
 <title>ICTYA Collections</title>
@@ -11,7 +12,7 @@
 <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-<?php include('header.php'); ?>
+
 <form action="conf.php">
     <div class="container" style="margin-top:100px;">
 <div class="row">
