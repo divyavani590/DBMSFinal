@@ -1,3 +1,4 @@
+<?php include('header.php'); ?>
 <html>
 
 <head>
@@ -13,7 +14,7 @@
 </head>
 <body>
 
-<?php include('header.php'); ?>
+
 
 <div class="bg">
 <br><br><br><br><br><br><br><br><br><br><br>
