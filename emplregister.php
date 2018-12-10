@@ -79,19 +79,21 @@
 </div>
 </div>
 </div>
+
 <?php
-$Email=$Password = $Id=$firstname=$lastname=$cpassword=$phno=$address=$UserId=$dob=$groupId="";
+$Email=$Password = $Id=$firstname=$lastname=$cpassword=$phno=$address=$UserId=$groupId="";
+$errors = array();
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-$Email = test_input($_POST["Email"]);
-$Password = test_input($_POST["Password"]);
+$email = test_input($_POST["email"]);
+$password = test_input($_POST["password"]);
 $firstname = test_input($_POST["firstname"]);
 $lastname = test_input($_POST["lastname"]);
 $cpassword = test_input($_POST["cpassword"]);
 $phno = test_input($_POST["phno"]);
 $address = test_input($_POST["address"]);
 $UserId = test_input($_POST["UserId"]);
-$dob = test_input($_POST["dob"]);
-$groupId=2;
+//$dob = test_input($_POST["dob"]);
+//$groupId=3;
 
 }
 function test_input($data) {
@@ -100,53 +102,63 @@ function test_input($data) {
   $data = htmlspecialchars($data);
   return $data;
 }
-if (isset($_POST['submit'])){
-   login($Email,$firstname,$lastname,$UserId,$dob,$Password,$cpassword,$phno,$address,$groupId);
-}
-?>
-<?php
-function login($Email,$firstname,$lastname,$UserId,$dob,$Password,$cpassword,$phno,$address,$groupId){
-if ($Password==$cpassword){
-$servername = "localhost";
-$dbusername = "root";
-$dbpassword = "monica";
-$dbname = "ictya";
-$mysqli= new PDO("mysql:host=$servername;dbname=$dbname",$dbusername,$dbpassword);
-if (mysqli_connect_errno()) {
-    printf("Connect failed: %s\n", mysqli_connect_error());
-    exit();
-    }
-$query = 'SELECT Email FROM users WHERE (Email=:Email1)';
-if($stmt = $mysqli->prepare($query)){
-	$stmt->bindParam(':Email1', $Email, PDO::PARAM_STR);
-    $stmt->execute();
-	$rows = $stmt->fetch(PDO::FETCH_NUM);
-    }else die("Failed to prepare query");
-if($rows > 0) {
-	echo "Email already exists";
-	}else{
-	$query = 'INSERT INTO users(firstname,lastname,Email,UserId,dob,Password,phno,address,groupId) values (:firstname1,:lastname1,:Email1,:UserId1,:dob1,:Password1,:phno1,:address1,:groupId1)';
-if($stmt = $mysqli->prepare($query)){
-	$stmt->bindParam(':firstname1', $firstname, PDO::PARAM_STR);
-	$stmt->bindParam(':lastname1', $lastname, PDO::PARAM_STR);
-	$stmt->bindParam(':Email1', $Email, PDO::PARAM_STR);
-	$stmt->bindParam(':UserId1', $UserId, PDO::PARAM_STR);
-	$stmt->bindParam(':dob1', $dob, PDO::PARAM_STR);
-	$stmt->bindParam(':Password1', $Password, PDO::PARAM_STR);
-	$stmt->bindParam(':phno1', $phno, PDO::PARAM_STR);
-    $stmt->bindParam(':address1', $address, PDO::PARAM_STR);
-	$stmt->bindParam(':groupId1',$groupId, PDO::PARAM_STR);
+include("dbcontroller.php");
+$db_handle = new DBController();
+$conn = $db_handle->connectDB();
+if (isset($_POST['submit'])) {
+  // receive all input values from the form
+  $UserId = mysqli_real_escape_string($conn, $_POST['UserId']);
+  $email = mysqli_real_escape_string($conn, $_POST['email']);
+  $password = mysqli_real_escape_string($conn, $_POST['password']);
+  $cpassword = mysqli_real_escape_string($conn, $_POST['cpassword']);
+  $firstname = mysqli_real_escape_string($conn, $_POST['firstname']);
+  $lastname = mysqli_real_escape_string($conn, $_POST['lastname']);
+  $phno = mysqli_real_escape_string($conn, $_POST['phno']);
+    $address = mysqli_real_escape_string($conn, $_POST['address']);
+	 // $groupId = mysqli_real_escape_string($conn, $_POST['groupId']);
 
-	$stmt->execute();
-    header("Location: login.php");
-    exit();
+ //if (empty($UserId)) { array_push($errors, "Username is required"); }
+  if (empty($email)) { 
+  echo '<script>alert("Email is required")</script>';
+  //array_push($errors, "Email is required"); 
+  }
+  if (empty($password)) { array_push($errors, "Password is required"); }
+  if ($password != $cpassword) {
+	  echo '<script>alert("password and confirm password do not match.")</script>';
+	//array_push($errors, "The two passwords do not match");
+  }
+  $user_check_query = "SELECT * FROM userprofile WHERE UserId='$UserId' LIMIT 1";
+  $result = mysqli_query($conn, $user_check_query);
+  //$user = mysqli_fetch_assoc($result);
+if ($user=mysqli_fetch_assoc($result)) { // if user exists
+    if ($user['UserId'] == $UserId) {
+		echo '<script>alert("Username already exists.Please enter different Username")</script>';
+      //array_push($errors, "Username already exists");
+    }
+
+   if ($user['email'] === $email) {
+	   echo '<script>alert("Email already exists.Please enter different Email")</script>';
+     // array_push($errors, "email already exists");
     }
   }
-}
-Else echo '<font color="red">Password and Confirm Password are not matching</font>';
+  //if (count($errors) == 0) 
+  else {
+  	$newpassword = md5($password);//encrypt the password before saving in the database
+
+  $query = "INSERT INTO userprofile(firstname,lastname,email,UserId,password,phno,address,groupId) values ('$firstname','$lastname','$email','$UserId','$newpassword','$phno','$address','2')";
+  
+  	if(mysqli_query($conn, $query))
+	{
+		echo "new recored entered";
+	}
+  	//$_SESSION['username'] = $username;
+  	//$_SESSION['success'] = "You are now logged in";
+  	//header('location: index.php');
+  }
+  
 }
 ?>
-
+</div>
 <?php include 'footer.php'?>
 </body>
 </html>
