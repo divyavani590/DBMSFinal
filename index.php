@@ -1,4 +1,4 @@
-<?php 	if(session_status()!=PHP_SESSION_ACTIVE) session_start(); ?>
+<?php ob_start(); session_start();?>
 <html>
 <head>
 <title>ICTYA Collections</title>
