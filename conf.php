@@ -46,7 +46,7 @@ unset($_SESSION["cart_item"]);
 <br><br><br><br><br><br><br><br><br><br><br>
 <font  color="#C70039" face="courier" size= "30"><i><b>
 &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;You have succesfully placed your order!!!</font></i></b>
-<a href="home.php" >Continue Shopping</a>
+<a href="userhome.php" >Continue Shopping</a>
 <br><br><br><br><br><br><br><br><br><br><br>
 
 
