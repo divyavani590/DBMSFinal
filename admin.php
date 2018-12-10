@@ -242,7 +242,7 @@ table td {
 
 switch($action){
     case 'profile':
-        include('Admin_profile.php');
+        include('adminprofile.php');
         break;
     case 'category':
         include('Categories.php');
