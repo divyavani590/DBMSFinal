@@ -1,7 +1,6 @@
 
 
-<?php
-//include("session.php");
+<?php include("session.php");
 $conn = $db_handle->getNewConn();
 //$sql="select * from products";
 //$result=mysqli_query($conn,$sql);
