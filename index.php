@@ -1,3 +1,4 @@
+<?php 	session_start(); ?>
 <html>
 <head>
 <title>ICTYA Collections</title>
@@ -83,7 +84,7 @@ if (isset($_POST['submit'])){
    if ($validLogin!=0){
 		$groupId= $validLogin["groupId"];
         
-		session_start();
+	
         $_SESSION['email'] = $email;
         $_SESSION['groupId'] = $groupId;
         $_SESSION['is_logged'] = true;
