@@ -26,7 +26,7 @@
 <body>
 <h1> <font face="courier" color="#C70039">ICTYA Collections-User Registration </font></h1>
 <ul>
-  <li><a href="home.php">Home</a></li>
+  <li><a href="userhome.php">Home</a></li>
   <li><a href="aboutus.php">About Us</a></li>
   <li><a href="index.php">Login</a></li>
   <li><a href="register.php">Register</a></li>

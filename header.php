@@ -1,7 +1,7 @@
 <?php include('session.php'); ?>
 <h1> <font face="courier" color="#C70039">ICTYA Collections </font></h1>
 <ul>
-  <li><a href="home.php">Home</a></li>
+  <li><a href="userhome.php">Home</a></li>
 
   
   <!--<li><a href="login.php">Place Order</a></li>-->

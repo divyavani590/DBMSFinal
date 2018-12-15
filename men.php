@@ -23,10 +23,12 @@ if (!empty($product_array)) {
 <div class="col-md-3">
   <form method="post" action="men.php?action=add&code=<?php echo $row["product_id"]; ?>">
   <img src="<?php echo $row['productimage'] ?>" width="250" height="230"><br/><br/>
-  <label><b><font color="green" face="courier" size= "2"><?php echo $row['product_desc'] ?>&ensp;</b></font></label><br/>
-  <label> Quantitiy: </label>
-  <input type="number" name="quantity" class="ipt-qty" min="0" max="20"/>&emsp;
-  <input type="submit"  class="btn btn-primary" value="Add to the cart" />
+  <h3><b><font color="green" face="courier" size= "2"><?php echo $row['product_desc'] ?>&ensp;</b></font></h3>
+  <label> Quantity: </label>
+  <input type="number" name="quantity" class="ipt-qty" min="0" max="<?php echo $row['product_qty'] ?>"/>&emsp;
+
+  <input type="submit"  class="btn btn-primary pull-right" value="Add to the cart" /><br/>
+  <label> Available Qty: <?php echo $row['product_qty'] ?></label>
   </form>
 </div>
 

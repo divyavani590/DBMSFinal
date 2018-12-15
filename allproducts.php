@@ -26,11 +26,11 @@ $stmt= $conn->prepare("select * from products");
 			<th>Product Name</th>
 			<th>Price per Unit</th>
 			<th>Order in quantity</th>
-			<th>gender</th>
+			<th>Gender</th>
 			<th>Category id</th>
 			<th>Product Image</th>
-            <th>you can edit event details</th>
-			<th>you can delete any event</th>
+            <th>Edit</th>
+			<th>Delete</th>
 
 		</tr>
 </thead>
@@ -47,7 +47,7 @@ $stmt= $conn->prepare("select * from products");
 			echo "<td>". $row['category_id']."</td>";
 			echo "<td>". $row['productimage']."</td>";
 			echo "<td><a href='editgetpro.php?product_id=$row[product_id]' class='btn btn-outline-elegant'>Edit</a></td>";
-			echo "<td><a href='deleteproduct.php?product_id=$row[product_id]' class='btn btn-outline-danger'>Delete</a></td>";
+			echo "<td><a href='admin.php?product_id=$row[product_id]' class='btn btn-outline-danger'>Delete</a></td>";
 		echo"</tr>";
 	}	
 		

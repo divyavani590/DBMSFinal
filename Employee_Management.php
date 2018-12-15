@@ -56,8 +56,8 @@ $result = $db_handle->runQuery($sql);
                         echo "<td>" . $row["phno"]. "</td>";
                         echo "<td>" . $row["address"]. "</td>" ;  
                         echo "<td>" . $row["groupId"]. "</td>" ; 
-                        echo "<td><form action='admin.php' method='post'>
-                        <input type='hidden' name='email' value='$email'><br>
+                        echo "<td><form action='admin.php' method='post' style='margin:0;'>
+                        <input type='hidden' name='email' value='$email'>
                         <input type='submit'value='Make Admin' class='btn btn-primary'>
                         <input type='hidden' name='action' value='employee_management'/>
                     </form></td>"  ;
