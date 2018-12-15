@@ -16,14 +16,26 @@
 <div class="container">
 <div class= "row">
 <?php
-$product_array = $db_handle->runQuery("SELECT * FROM products where gender= 'M' ORDER BY product_id ASC");
+$conn1 = $db_handle->getNewConn();
+if( isset($_GET['cat_id']) )
+{
+  $cat_id= $_GET['cat_id'];
+  $sql = "SELECT * FROM products where gender= 'M' AND category_id= ? ORDER BY product_id ASC";
+  $stmt = $conn1->prepare($sql);
+  $stmt->bind_param('i', $cat_id);
+}else{
+  $sql = "SELECT * FROM products where gender= 'M' ORDER BY product_id ASC";
+  $stmt = $conn1->prepare($sql);
+}
+  $stmt->execute();
+  $product_array = $stmt->get_result();
 if (!empty($product_array)) {
     foreach ($product_array as $row) {?>
 
-<div class="col-md-3">
+<div class="col-md-3 pm-tile">
   <form method="post" action="men.php?action=add&code=<?php echo $row["product_id"]; ?>">
-  <img src="<?php echo $row['productimage'] ?>" width="250" height="230"><br/><br/>
-  <h3><b><font color="green" face="courier" size= "2"><?php echo $row['product_desc'] ?>&ensp;</b></font></h3>
+  <img src="<?php echo $row['productimage'] ?>" width="260" height="230">
+  <h3><?php echo $row['product_desc'] ?>&ensp;</h3>
   <label> Quantity: </label>
   <input type="number" name="quantity" class="ipt-qty" min="0" max="<?php echo $row['product_qty'] ?>"/>&emsp;
 

@@ -21,7 +21,7 @@
 <body>
 <h1> <font face="courier" color="#C70039">ICTYA Collections-Employee Registration </font></h1>
 <ul>
-  <li><a href="home.php">Home</a></li>
+  <li><a href="userhome.php">Home</a></li>
   <li><a href="aboutus.php">About Us</a></li>
   <li><a href="login.php">Place Order</a></li>
   <li class="dropdown"><a href="order.php" class="dropbtn">Items</a>
