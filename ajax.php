@@ -56,7 +56,29 @@ if ($stmt = $mysqli->prepare("SELECT * FROM `orders` WHERE `orderid` LIKE ?")) {
     }
    /* close statement */
     $stmt->close();
-}
+}else if($page == "allpayments"){
+    //  $query = "SELECT * FROM `orders` WHERE `orderid` LIKE '$srx'";
+      /* create a prepared statement */
+  if ($stmt = $mysqli->prepare("SELECT * FROM `payment` WHERE `orderid` LIKE ?")) {
+      /* bind parameters for markers */
+      $stmt->bind_param("s", $srx);
+      /* execute query */
+      $stmt->execute();
+      $result = $stmt->get_result();
+      if($result->num_rows === 0) exit('No results');
+      while($row = $result->fetch_assoc()) {
+          echo "<tr>";
+          echo "<td>". $row['orderid']."</td>";
+          echo "<td>". $row['email']."</td>";
+          echo "<td>". $row['total_price']."</td>";
+          echo "<td>Payment Successfull</td>";
+      
+      echo"</tr>";
+          }
+      }
+     /* close statement */
+      $stmt->close();
+  }
 
 
 

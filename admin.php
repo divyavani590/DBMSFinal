@@ -220,14 +220,14 @@ table td {
             </li>
             </form>
 
-            <form action="admin.php" method="post" name="category" class="<?php if($_SESSION['groupId'] == 2){ echo 'hide'; } ?>" >
+            <form action="admin.php" method="post" name="category" class="<?php if($_SESSION['groupId'] == 2 || $_SESSION['groupId'] == 4){ echo 'hide'; } ?>" >
             <li data-toggle="collapse" data-target="#products" class="collapsed <?php if($action == 'category') { echo 'active'; } ?>">
                 <a href="javascript:document.category.submit()" ><i class="fa fa-gift fa-lg"></i> Categeries <span class="arrow"></span></a>
                 <input type="hidden" name="action" value="category">
             </li>
             </form>
 
-            <form action="admin.php" method="post" name="employee_management" class="<?php if($_SESSION['groupId'] == 2){ echo 'hide';} ?>">
+            <form action="admin.php" method="post" name="employee_management" class="<?php if($_SESSION['groupId'] == 2 || $_SESSION['groupId'] == 4){ echo 'hide';} ?>">
             <li data-toggle="collapse" data-target="#products" class="collapsed <?php if($action == 'employee_management') { echo 'active'; } ?>">
                 <a href="javascript:document.employee_management.submit()" ><i class="fa fa-gift fa-lg"></i> Employee_Management <span class="arrow"></span></a>
                 <input type="hidden" name="action" value="employee_management">
@@ -235,7 +235,7 @@ table td {
             </form>
 
             <form action="admin.php" method="post" name="allproducts">
-            <li data-toggle="collapse" data-target="#products" class="collapsed <?php if($action == 'allproducts') { echo 'active'; } ?>">
+            <li data-toggle="collapse" data-target="#products" class="collapsed <?php if($action == 'allproducts') { echo ' active'; } ?> <?php if($_SESSION['groupId'] == 4){ echo ' hide';} ?>">
                 <a href="javascript:document.allproducts.submit()" ><i class="fa fa-gift fa-lg"></i> Products <span class="arrow"></span></a>
                 <input type="hidden" name="action" value="allproducts">
             </li>
@@ -245,6 +245,13 @@ table td {
             <li data-toggle="collapse" data-target="#products" class="collapsed <?php if($action == 'allorders') { echo 'active'; } ?>">
                 <a href="javascript:document.allorders.submit()" ><i class="fa fa-gift fa-lg"></i> Orders <span class="arrow"></span></a>
                 <input type="hidden" name="action" value="allorders">
+            </li>
+            </form>
+
+            <form action="admin.php" method="post" name="allpayments">
+            <li data-toggle="collapse" data-target="#products" class="collapsed <?php if($action == 'allorders') { echo 'active'; } ?> <?php if($_SESSION['groupId'] == 1 || $_SESSION['groupId'] == 3){ echo ' hide';} ?>">
+                <a href="javascript:document.allpayments.submit()" ><i class="fa fa-gift fa-lg"></i> Payments <span class="arrow"></span></a>
+                <input type="hidden" name="action" value="allpayments">
             </li>
             </form>
             
@@ -280,6 +287,9 @@ switch($action){
         break;
     case 'allorders':
         include('allorders.php');
+        break;
+    case 'allpayments':
+        include('allpayments.php');
         break;
     default: break;
 }
