@@ -1,20 +1,5 @@
-<?php include "header.php";
+<?php include "session.php";
 $conn = $db_handle->getNewConn();
-
-if (isset($_GET['product_id'])) {
-    $id = $_GET['product_id'];
-    //$res= mysqli_query($conn,);
-    $stmt = $conn->prepare("SELECT * FROM products WHERE product_id=?");
-    $stmt->bind_param('s', $id);
-    $stmt->execute();
-    //$row= mysqli_fetch_array($res);
-    $rows = $stmt->get_result();
-    $row = $rows->fetch_assoc();
-    //print_r($row);
-}
-//mysqli_close($conn);
-
-
 if (isset($_POST['submit'])) {
 
     $id = $_POST['prod_id'];
@@ -40,7 +25,8 @@ if (isset($_POST['submit'])) {
     $stmt->execute();
     if ($stmt->affected_rows > 0) {
         echo "<p style='color:maroon;'>you action is successfully completed</p>";
-        echo "<h2><center>Page re-directing to Events page</center></h2>";
+		echo "<h2><center>Page re-directing to Events page</center></h2>";
+		echo ' <input type="hidden" name="action" value="allproducts">';
         echo "<meta http-equiv='refresh' content='1;url=admin.php'>";
     } else {
         printf("Error: %s.\n", $stmt->error);
@@ -48,7 +34,17 @@ if (isset($_POST['submit'])) {
     $stmt->close();
 
 }
-
+if (isset($_GET['product_id'])) {
+    $id = $_GET['product_id'];
+    //$res= mysqli_query($conn,);
+    $stmt = $conn->prepare("SELECT * FROM products WHERE product_id=?");
+    $stmt->bind_param('s', $id);
+    $stmt->execute();
+    //$row= mysqli_fetch_array($res);
+    $rows = $stmt->get_result();
+    $row = $rows->fetch_assoc();
+    //print_r($row);
+}
 function isCheckedMale($gender)
 {
 
@@ -114,7 +110,8 @@ function isCheckedFemale($gender)
 			</tr> -->
 			<tr>
 			<td >Product Id</td>
-			<td><input type="text" name="prod_id" disabled="diabled" value="<?php echo $row['product_id']; ?>"></td>
+			<td><input type="text" disabled="disabled" value="<?php echo $row['product_id']; ?>">
+			<input type="hidden" name="prod_id" value="<?php echo $row['product_id']; ?>"></td>
 			</tr>
 			<tr>
 				<td >Product Name</td>

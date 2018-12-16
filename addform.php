@@ -1,4 +1,4 @@
-<?php include "header.php";?>
+<?php include "session.php";?>
 <?php
 if (!empty($_FILES) && isset($_FILES['fileToUpload'])) {
     switch ($_FILES['fileToUpload']["error"]) {
