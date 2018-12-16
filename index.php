@@ -1,4 +1,4 @@
-<?php ob_start();   session_start();?>
+<?php ob_start(); ?>
 <?php
   $_SESSION['login_error'] = false;
 $email=$password = $Idvalue="";
@@ -14,7 +14,7 @@ function test_input($data) {
   return $data;
 }
 if (isset($_POST['submit'])){
-
+  session_start();
    $validLogin = login($email,$newpassword );
    if ($validLogin!=0){
 		$groupId= $validLogin["groupId"];  
