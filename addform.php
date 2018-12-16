@@ -1,5 +1,9 @@
 <?php include "session.php";?>
 <?php
+if($_SESSION["groupId"] == 3)
+{
+   header("location:userhome.php");
+}
 if (!empty($_FILES) && isset($_FILES['fileToUpload'])) {
     switch ($_FILES['fileToUpload']["error"]) {
         case UPLOAD_ERR_OK:

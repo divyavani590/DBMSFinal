@@ -1,4 +1,8 @@
 <?php include "session.php";
+if($_SESSION["groupId"] == 3)
+{
+   header("location:userhome.php");
+}
 $conn = $db_handle->getNewConn();
 if (isset($_POST['submit'])) {
 

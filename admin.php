@@ -1,4 +1,8 @@
 <?php include('session.php');
+ if($_SESSION["groupId"] == 3)
+ {
+    header("location:userhome.php");
+ }
  $action = filter_input(INPUT_POST, 'action');
  if($action == NULL){
      if($_SESSION["adminPage"] == NULL){
