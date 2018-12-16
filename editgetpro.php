@@ -98,7 +98,8 @@ function isCheckedFemale($gender)
 	  $("#filenamepath").val(this.files[0].name);
   });
   $(document).on('ready',function(){
-	  $("#filenamepath").val($("#newimage").val());
+	  var ima= $("#newimage").val().split("/");
+	  $("#filenamepath").val(ima[1]);
   });
   </script>
 </head>
