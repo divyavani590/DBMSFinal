@@ -1,7 +1,7 @@
 
 <?php
 $email = $_SESSION['email'];
-$sql = "SELECT Id, firstname, lastname, email, UserId, phno, address  FROM userprofile WHERE email='$email'";
+$sql = "SELECT Id, firstname, lastname, email, phno, address  FROM userprofile WHERE email='$email'";
 $result = $db_handle->runQuery($sql);?>
 <table class="table table-striped table-bordered">
 <thead>
@@ -10,7 +10,6 @@ $result = $db_handle->runQuery($sql);?>
 			<th>firstname</th>
 			<th>lastname</th>
 			<th>email</th>
-			<th>UserId</th>
 			<th>phno</th>
 			<th>address</th>
 
@@ -24,7 +23,6 @@ $result = $db_handle->runQuery($sql);?>
         echo "<td>". $row['firstname']."</td>";
         echo "<td>". $row['lastname']."</td>";
         echo "<td>". $row['email']."</td>";
-        echo "<td>". $row['UserId']."</td>";
         echo "<td>". $row['phno']."</td>";
         echo "<td>". $row['address']."</td>";
 

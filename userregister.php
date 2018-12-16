@@ -92,7 +92,7 @@
 </div>
 
 <?php
-$Email=$Password = $Id=$firstname=$lastname=$cpassword=$phno=$address=$UserId=$groupId="";
+$Email=$Password = $Id=$firstname=$lastname=$cpassword=$phno=$address=$groupId="";
 $errors = array();
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
 $email = test_input($_POST["email"]);
@@ -102,7 +102,6 @@ $lastname = test_input($_POST["lastname"]);
 $cpassword = test_input($_POST["cpassword"]);
 $phno = test_input($_POST["phno"]);
 $address = test_input($_POST["address"]);
-$UserId = test_input($_POST["UserId"]);
 //$dob = test_input($_POST["dob"]);
 //$groupId=3;
 
@@ -113,9 +112,7 @@ function test_input($data) {
   $data = htmlspecialchars($data);
   return $data;
 }
-//if (isset($_POST['submit'])){
- //  login($Email,$firstname,$lastname,$UserId,$Password,$cpassword,$phno,$address,$groupId);
-//}
+
 ?>
 <?php
 include("dbcontroller.php");
@@ -123,7 +120,6 @@ $db_handle = new DBController();
 $conn = $db_handle->connectDB();
 if (isset($_POST['submit'])) {
   // receive all input values from the form
-  $UserId = mysqli_real_escape_string($conn, $_POST['UserId']);
   $email = mysqli_real_escape_string($conn, $_POST['email']);
   $password = mysqli_real_escape_string($conn, $_POST['password']);
   $cpassword = mysqli_real_escape_string($conn, $_POST['cpassword']);
@@ -131,9 +127,7 @@ if (isset($_POST['submit'])) {
   $lastname = mysqli_real_escape_string($conn, $_POST['lastname']);
   $phno = mysqli_real_escape_string($conn, $_POST['phno']);
     $address = mysqli_real_escape_string($conn, $_POST['address']);
-	 // $groupId = mysqli_real_escape_string($conn, $_POST['groupId']);
 
- //if (empty($UserId)) { array_push($errors, "Username is required"); }
   if (empty($email)) { 
   echo '<script>alert("Email is required")</script>';
   //array_push($errors, "Email is required"); 
@@ -143,14 +137,10 @@ if (isset($_POST['submit'])) {
 	  echo '<script>alert("password and confirm password do not match.")</script>';
 	//array_push($errors, "The two passwords do not match");
   }
-  $user_check_query = "SELECT * FROM userprofile WHERE UserId='$UserId' LIMIT 1";
+  $user_check_query = "SELECT * FROM userprofile WHERE email='$email' LIMIT 1";
   $result = mysqli_query($conn, $user_check_query);
   //$user = mysqli_fetch_assoc($result);
 if ($user=mysqli_fetch_assoc($result)) { // if user exists
-    if ($user['UserId'] == $UserId) {
-		echo '<script>alert("Username already exists.Please enter different Username")</script>';
-      //array_push($errors, "Username already exists");
-    }
 
    if ($user['email'] === $email) {
 	   echo '<script>alert("Email already exists.Please enter different Email")</script>';
@@ -161,7 +151,7 @@ if ($user=mysqli_fetch_assoc($result)) { // if user exists
   else {
   	$newpassword = md5($password);//encrypt the password before saving in the database
 
-  $query = "INSERT INTO userprofile(firstname,lastname,email,UserId,password,phno,address,groupId) values ('$firstname','$lastname','$email','$UserId','$newpassword','$phno','$address','3')";
+  $query = "INSERT INTO userprofile(firstname,lastname,email,password,phno,address,groupId) values ('$firstname','$lastname','$email','$newpassword','$phno','$address','3')";
   
   	if(mysqli_query($conn, $query))
 	{
