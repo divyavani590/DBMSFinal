@@ -18,7 +18,7 @@ $stmt= $conn->prepare("select * from products");
 </div>
 </div>
 
-
+ <div class="row">
 <table class="table table-striped table-bordered" >
 <thead>
 		<tr>
@@ -52,6 +52,6 @@ $stmt= $conn->prepare("select * from products");
 	}	
 		
 echo "</tbody>";
-	echo "</table>";
+	echo "</table></div>";
 	mysqli_close($conn);
 ?>

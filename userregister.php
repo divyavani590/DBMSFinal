@@ -12,6 +12,7 @@
 <!-- Optional theme -->
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css" integrity="sha384-fLW2N01lMqjakBkx3l/M9EahuwpSfeNvV63J5ezn3uZzapT0u7EYsXMjQV+0En5r" crossorigin="anonymous">
 <link rel="stylesheet" href="style.css" />
+<link rel="stylesheet" href="loginStyle.css" />
 <style>
 	.required:before{
   content:"*";
@@ -28,8 +29,12 @@
 <ul>
   <li><a href="userhome.php">Home</a></li>
   <li><a href="aboutus.php">About Us</a></li>
-  <li><a href="index.php">Login</a></li>
-  <li><a href="register.php">Register</a></li>
+  <li class="dropdown"><a href="#" class="dropbtn">Register</a>
+    <div class="dropdown-content" >
+      <a href="userregister.php">Register as User</a>
+      <a href="emplregister.php">Register as Employee</a>
+    </div>
+  </li>
   <li><a href="contact.php">Contact Us</a></li>
 </ul>
 

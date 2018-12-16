@@ -45,6 +45,9 @@ table th {
 table td {
     font-size: inherit; 
 }
+.table .btn{
+    padding:5px 10px;
+}
     </style>
 <style>
     .nav-side-menu {
@@ -55,7 +58,6 @@ table td {
     background-color: #2e353d;
     position: fixed;
     top: 0px;
-    width: 300px;
     height: 100%;
     color: #e1ffff;
     }

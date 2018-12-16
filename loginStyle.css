@@ -22,3 +22,53 @@ padding : 50px 0;
 .banner-text h2{color:#fff; font-weight:600;}
 .banner-text h2:after{content:" "; width:100px; height:5px; background:#FFF; display:block; margin-top:20px; border-radius:3px;}
 .banner-text p{color:#fff;}
+
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #C70039;
+    }
+
+li {
+    float: left;
+	}
+li a, .dropbtn {
+    display: inline-block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+	}
+li a:hover, .dropdown:hover .dropbtn {
+    background-color: #EC7063;
+    }
+    
+.women li a:hover,.women .dropdown:hover .dropbtn {
+    background-color: #F5CBA7;
+    }
+li.dropdown {
+    display: inline-block;
+	}
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: white;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+	}
+.dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    text-align: left;
+	}
+.dropdown-content a:hover {
+	background-color: #EAECEE
+	}
+.dropdown:hover .dropdown-content {
+    display: block;
+    }
