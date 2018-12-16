@@ -19,10 +19,11 @@
 
 <div id="shopping-cart">
 <div class="txt-heading">Shopping Cart</div>
-<div class="rignt-content">
+<div class="rignt-content  col-md-3 col-md-offset-7">
 <a id="btnEmpty" href="cart.php?action=empty" class="btn btn-warning" role="button" style="margin-right:15px;">Empty Cart</a>
-<form action="payment.php">
-
+</div>
+<div class="rignt-content  col-md-2">
+<form action="payment.php" style="display:inline-block;">
 <input type= "submit" value="Checkout" class="btn-primary btn pull-right"/>
 </form>
 </div>
