@@ -224,4 +224,6 @@ nav {
   border-right-color: orange;
   right: 10px; 
 }
-
+.pm-tile h3{
+    text-transform: uppercase;
+}
