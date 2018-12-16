@@ -24,7 +24,7 @@
   <li><a href="contact.php">Contact Us</a></li>
 </ul>
 
-<div class="bg" >
+<div class="" >
 <div class="container">
 	<div class="row">
 <div  style="background-color:#FFFFFF">
