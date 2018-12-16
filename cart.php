@@ -21,8 +21,10 @@
 <div class="txt-heading">Shopping Cart</div>
 <div class="rignt-content">
 <a id="btnEmpty" href="cart.php?action=empty" class="btn btn-warning" role="button" style="margin-right:15px;">Empty Cart</a>
+<form action="payment.php">
 
 <input type= "submit" value="Checkout" class="btn-primary btn pull-right"/>
+</form>
 </div>
 <?php
 if (isset($_SESSION["cart_item"])) {
@@ -67,8 +69,7 @@ foreach ($_SESSION["cart_item"] as $item) {
 </tr>
 </tbody>
 </table>
-<form action="payment.php">
-</form>
+
   <?php
 } else {
     ?>

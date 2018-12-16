@@ -38,10 +38,6 @@
   <li><a href="contact.php">Contact Us</a></li>
 </ul>
 
-
-
-
-
 <div class="bg">
 
 
@@ -80,8 +76,18 @@
     <textarea name="address" rows="6" cols="30" required= "required"  required class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
   </div>
 
-  
-  
+  <?php
+    if ($_SERVER["REQUEST_METHOD"] == "POST")
+    {
+  ?>
+      <div class="form-group">
+        <h1> Registration Successful!!! </h1>
+        <a href= "index.php"> Goto Login </a>
+      </div>
+  <?php
+  }
+  ?>
+
     <div class="form-check">
     <input type="submit" name="submit" value="Submit" class="btn btn-primary ">
     
@@ -155,11 +161,8 @@ if ($user=mysqli_fetch_assoc($result)) { // if user exists
   
   	if(mysqli_query($conn, $query))
 	{
-		echo "new recored entered";
+
 	}
-  	//$_SESSION['username'] = $username;
-  	//$_SESSION['success'] = "You are now logged in";
-  	//header('location: index.php');
   }
   
 }
