@@ -69,11 +69,23 @@
     <label for="exampleFormControlTextarea1">Address</label>
     <textarea name="address" rows="6" cols="30" required= "required"  required class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
   </div>
+
+  <?php
+    if ($_SERVER["REQUEST_METHOD"] == "POST")
+    {
+  ?>
+      <div class="form-group">
+        <h1> Registration Successful!!! </h1>
+        <a href= "index.php"> Goto Login </a>
+      </div>
+  <?php
+  }
+  ?>
   
-    <div class="form-check">
-        <input type="submit" name="submit" value="Submit" class="btn btn-primary ">
-        
-    </div>
+  <div class="form-check">
+      <input type="submit" name="submit" value="Submit" class="btn btn-primary ">
+      
+  </div>
   
 </form>
 </div>
