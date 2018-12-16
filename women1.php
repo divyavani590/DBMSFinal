@@ -37,7 +37,7 @@ if (!empty($product_array)) {
 <div class="col-md-3 pm-tile <?php if($row['product_qty'] == 0){ echo 'hide'; } ?>">
   <form method="post" action="women1.php?action=add&code=<?php echo $row["product_id"]; ?>&cat_id=<?php echo $cat_id ?>">
   <img src="<?php echo $row['productimage'] ?>" width="260" height="230">
-  <h3><?php echo $row['product_desc'] ?>&ensp;</h3>
+  <h3><?php echo $row['product_desc'] ?></h3>
   <label> Quantity: </label>
   <input type="number" name="quantity" class="ipt-qty" min="0" max="<?php echo $row['product_qty'] ?>"/>&emsp;
 
