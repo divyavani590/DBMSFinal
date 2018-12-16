@@ -30,7 +30,6 @@ switch($_GET["action"]) {
 					}
 				} else {
                     $_SESSION["cart_item"] = $_SESSION["cart_item"]+ $itemArray;
-                    print_r($_SESSION["cart_item"]);
                     $_SESSION["cart_item_count"] += 1;
                    
 				}
