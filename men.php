@@ -33,7 +33,7 @@ if (!empty($product_array)) {
     foreach ($product_array as $row) {?>
 
 <div class="col-md-3 pm-tile">
-  <form method="post" action="men.php?action=add&code=<?php echo $row["product_id"]; ?>">
+  <form method="post" action="men.php?action=add&code=<?php echo $row["product_id"]; ?>&cat_id=<?php echo $cat_id ?>">
   <img src="<?php echo $row['productimage'] ?>" width="260" height="230">
   <h3><?php echo $row['product_desc'] ?>&ensp;</h3>
   <label> Quantity: </label>
