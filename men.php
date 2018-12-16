@@ -40,7 +40,8 @@ if (!empty($product_array)) {
   <input type="number" name="quantity" class="ipt-qty" min="0" max="<?php echo $row['product_qty'] ?>"/>&emsp;
 
   <input type="submit"  class="btn btn-primary pull-right" value="Add to the cart" /><br/>
-  <label> Available Qty: <?php echo $row['product_qty'] ?></label>
+  <label> Available Qty: <?php echo $row['product_qty'] ?></label><br/>
+  <label> Price: <?php echo "$".$row['price'] ?></label>
   </form>
 </div>
 
