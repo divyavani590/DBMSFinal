@@ -253,7 +253,7 @@ table td {
             </form>
 
             <form action="admin.php" method="post" name="allpayments">
-            <li data-toggle="collapse" data-target="#products" class="collapsed <?php if($action == 'allorders') { echo 'active'; } ?> <?php if($_SESSION['groupId'] == 1 || $_SESSION['groupId'] == 3){ echo ' hide';} ?>">
+            <li data-toggle="collapse" data-target="#products" class="collapsed <?php if($action == 'allpayments') { echo 'active'; } ?> <?php if($_SESSION['groupId'] == 1 || $_SESSION['groupId'] == 3){ echo ' hide';} ?>">
                 <a href="javascript:document.allpayments.submit()" ><i class="fa fa-gift fa-lg"></i> Payments <span class="arrow"></span></a>
                 <input type="hidden" name="action" value="allpayments">
             </li>
