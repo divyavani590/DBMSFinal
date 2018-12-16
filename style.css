@@ -42,7 +42,10 @@ body, html {
 
 .women .bg {
     /* The image used */
-    background-image: url('page-bg.jpg');
+    background-image:
+    linear-gradient(
+        #8cc8e0, #1a8391
+    );
 
     /* Full height */
     height: 100%; 
