@@ -95,8 +95,10 @@ function isCheckedFemale($gender)
   crossorigin="anonymous"></script>
   <script>
   $(document).on('change', 'input[type=file]',function(){
-	  console.log(this.files[0].name);
 	  $("#filenamepath").val(this.files[0].name);
+  });
+  $(document).on('ready',function(){
+	  $("#filenamepath").val($("#newimage").val());
   });
   </script>
 </head>
@@ -123,7 +125,7 @@ function isCheckedFemale($gender)
 			</tr>
 			<tr>
 				<td>Product Image</td>
-				<td><input type="text" name="newimage" value="<?php echo $row['productimage']; ?>">
+				<td><input type="text" id="newimage" name="newimage" value="<?php echo $row['productimage']; ?>">
 	<input type="file" name="product" accept="image/*">
 	<input type="hidden" name="filename" id="filenamepath"></td>
 			</tr>
