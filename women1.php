@@ -11,7 +11,7 @@
 
 <link rel="stylesheet" href="style.css" />
 </head>
-<body class="women" style="background-image:url('winter.jpeg')">
+<body class="women" style="background:#ccc;">
 
 <div class="bg">
 <br>
