@@ -22,10 +22,8 @@ if (isset($_POST['submit'])){
         $_SESSION['email'] = $email;
         $_SESSION['groupId'] = $groupId;
         $_SESSION['is_logged'] = true;
-        if ($groupId==1){
+        if ($groupId==1 || $groupId==2 || $groupId==4){
             header('Location:admin.php');
-        }else if($groupId==2){
-            header('Location:admin.php');                
         }
         else if($groupId==3){
             header('Location:userhome.php');
