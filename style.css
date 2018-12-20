@@ -74,6 +74,7 @@ body, html {
         float: left;
         width: 25%;
         padding: 5px;
+        margin-left:10%;
     }
     .row::after {
         content: "";
