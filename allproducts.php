@@ -47,8 +47,8 @@ $stmt= $conn->prepare("select * from products");
 			echo "<td>". $row['category_id']."</td>";
 			echo "<td>". $row['productimage']."</td>";
 			?>
-			<td class="<?php if($_SESSION['groupId'] == 2){ echo 'hide'; } ?>"><a href='editgetpro.php?product_id=<?php $row['product_id'] ?>' class='btn btn-outline-elegant'>Edit</a></td>
-			<td class="<?php if($_SESSION['groupId'] == 2){ echo 'hide'; } ?>"><a href='admin.php?product_id=<?php $row['product_id'] ?>' class='btn btn-outline-danger'>Delete</a></td>
+			<td class="<?php if($_SESSION['groupId'] == 2){ echo 'hide'; } ?>"><a href='editgetpro.php?product_id=<?php echo $row['product_id'] ?>' class='btn btn-outline-elegant'>Edit</a></td>
+			<td class="<?php if($_SESSION['groupId'] == 2){ echo 'hide'; } ?>"><a href='admin.php?product_id=<?php echo $row['product_id'] ?>' class='btn btn-outline-danger'>Delete</a></td>
 		</tr>
 	<?php }	
 		
