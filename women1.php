@@ -19,7 +19,7 @@
 <div class= "row">
 <?php
 $conn1 = $db_handle->getNewConn();
-if( isset($_GET['cat_id']) )
+if( isset($_GET['cat_id']) && $_GET['cat_id'] == "" )
 {
   $cat_id= $_GET['cat_id'];
   $sql = "SELECT * FROM products where gender= 'F' AND category_id= ? ORDER BY product_id ASC";
